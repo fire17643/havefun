@@ -641,3 +641,6 @@ $({property: 0}).animate({property: 100}, {
                      }
                 }
             });
+
+/// Javascript复制JSON数据
+var a = JSON.parse(JSON.stringify(jsonobj));

@@ -463,3 +463,15 @@ var a=1,b=2;a=[b,b=a][0];
 
 if(conditoin) alert(1),alert(2),console.log(3);
 
+
+var x= 0;
+var f=function(){
+    x=1;
+};
+f();
+alert(x); 
+function f(){
+    x = 2;
+}
+f();
+alert(x);
