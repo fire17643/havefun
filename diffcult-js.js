@@ -475,3 +475,22 @@ function f(){
 }
 f();
 alert(x);
+
+
+function f1(){
+　　　　var n=999;
+　　　　nAdd=function(){
+　　　　    n+=1
+　　　　};
+　　　　function f2(){
+　　　　　　alert(n);
+　　　　}
+　　　　return f2;
+　　}
+　　var result1=f1();
+    var result2=f1();
+　　result1(); // 999
+    result2();//999
+　　nAdd();
+  　result1(); // 是999而不是1000，这是为何呢？
+    result2();//1000

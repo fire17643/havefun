@@ -644,3 +644,33 @@ $({property: 0}).animate({property: 100}, {
 
 /// Javascript复制JSON数据
 var a = JSON.parse(JSON.stringify(jsonobj));
+
+// 延迟函数sleep
+function sleep(milliSeconds){
+   var startTime = new Date().getTime();
+   while (new Date().getTime() < startTime + milliSeconds);
+}
+ 
+//use
+ 
+sleep(10000);
+
+// 用0补全位数
+function prefixInteger(num, length) {
+  return (num / Math.pow(10, length)).toFixed(length).substr(2);
+}
+
+
+//从数字0到最大值之间获取一个数字数组
+
+var numbersArray = [] , max = 100;
+ 
+for( var i=1; numbersArray.push(i++) < max;);  // numbers = [0,1,2,3 ... 100]
+
+//生成一个随机字符串
+
+function generateRandomAlphaNum(len) {
+    var rdmstring = "";
+    for( ; rdmString.length < len; rdmString  += Math.random().toString(36).substr(2));
+    return  rdmString.substr(0, len);
+}
