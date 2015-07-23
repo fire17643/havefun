@@ -494,3 +494,22 @@ function f1(){
 　　nAdd();
   　result1(); // 是999而不是1000，这是为何呢？
     result2();//1000
+
+if (!("a" in window)) {
+  var a = 1;
+ }
+alert(a);
+
+function a() {
+     alert(this);
+ }
+ a.call(null);// [object window]
+
+ function f(a) {
+  "use strict";
+  a = 42;
+  return [a, arguments[0]];
+}
+var pair = f(17);
+console.log(pair[0] === 42);
+console.log(pair[1] === 17);
