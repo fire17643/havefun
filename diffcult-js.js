@@ -513,3 +513,11 @@ function a() {
 var pair = f(17);
 console.log(pair[0] === 42);
 console.log(pair[1] === 17);
+
+
+var a = '﻿{"a":1}';
+try {
+    JSON.parse(a);
+} catch(e) {
+    alert(e.message);
+}
