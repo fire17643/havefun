@@ -1,0 +1,308 @@
+
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery和CSS3可互动的3D背景视觉差特效|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<!--[if IE]>
+		<script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="scene">
+	  <div class="bg">
+	  		<h1>jQuery和CSS3可互动的3D背景视觉差特效<span>
+	  </div>
+	  <div class="content">
+	    <div class="block">
+	      <img class="prime-img" src="http://i.imgur.com/SrIbkuy.jpg" alt="" />
+	      <img src="http://i.imgur.com/UjJZzVm.jpg" alt="" class="sec-img" />
+	      <h2 class="link">Whatever 1</h2>
+	      <span class="sec-info">Secondary information 1</span>
+	    </div>
+	    <div class="block">
+	      <img class="prime-img" src="http://i.imgur.com/Csemy6M.jpg" alt="" />
+	      <img src="http://i.imgur.com/bF6Hk5Q.jpg" alt="" class="sec-img" />
+	      <h2 class="link">Whatever 2</h2>
+	      <span class="sec-info">Secondary information 2</span>
+	    </div>
+	    <div class="block">
+	      <img class="prime-img" src="http://i.imgur.com/CvQpEL8.jpg" alt="" />
+	      <img src="http://i.imgur.com/lpHcoeA.jpg" alt="" class="sec-img" />
+	      <h2 class="link">Whatever 3</h2>
+	      <span class="sec-info">Secondary information 3</span>
+	    </div>
+	    <div class="block">
+	      <img class="prime-img" src="http://i.imgur.com/BAmz6ul.jpg" alt="" />
+	      <img src="http://i.imgur.com/2WrhK8N.jpg" alt="" class="sec-img" />
+	      <h2 class="link">Whatever 4</h2>
+	      <span class="sec-info">Secondary information 4</span>
+	    </div>
+	    <div class="block">
+	      <img class="prime-img" src="http://i.imgur.com/cU7rzo1.jpg" alt="" />
+	      <img src="http://i.imgur.com/pHupQMt.jpg" alt="" class="sec-img" />
+	      <h2 class="link">Whatever 5</h2>
+	      <span class="sec-info">Secondary information 5</span>
+	    </div>
+	  </div>
+	</div>
+	
+	<script src='http://libs.useso.com/js/jquery/1.11.0/jquery.min.js'></script>
+	<script src='js/jquery.easing.1.3.js'></script>
+	<script>
+	$(document).ready(function () {
+	    function debounce(func, wait, immediate) {
+	        var timeout;
+	        return function () {
+	            var context = this, args = arguments;
+	            clearTimeout(timeout);
+	            timeout = setTimeout(function () {
+	                timeout = null;
+	                if (!immediate)
+	                    func.apply(context, args);
+	            }, wait);
+	            if (immediate && !timeout)
+	                func.apply(context, args);
+	        };
+	    }
+	    ;
+	    var winW = $(window).width(), winH = $(window).height(), winWHalf = winW / 2, winHHalf = winH / 2, $cont = $('.content'), $bg = $('.bg'), contW = $cont.width(), contH = $cont.height(), bgW = $bg.width(), bgH = $bg.height(), diffX = (winW - contW) / 2, diffY = (winH - contH) / 2;
+	    var finalX = 0, finalY = 0, finalBgX = 0, finalBgY = 0;
+	    var moveContent = function (e) {
+	        console.log(bgW + ' ' + winW);
+	        var x = e.pageX, y = e.pageY;
+	        finalX = (x - winWHalf) * (contW / winW) / 2;
+	        finalY = (y - winHHalf) * (contH / winH) / 2;
+	        finalBgX = (x - winWHalf) * (bgW / winW) / 20;
+	        finalBgY = (y - winHHalf) * (bgH / winH) / 20;
+	        $cont.css('transform', 'translate3D(' + (0 - finalX) + 'px, ' + (0 - finalY) + 'px, 0)');
+	        $bg.css('transform', 'translate3D(' + (0 - finalBgX) + 'px, ' + (0 - finalBgY) + 'px, 0)');
+	    };
+	    $(document).on('mousemove', moveContent);
+	    $(window).on('resize', function () {
+	        winW = $(window).width();
+	        winH = $(window).height();
+	        winWHalf = winW / 2;
+	        winHHalf = winH / 2;
+	        contW = $cont.width();
+	        contH = $cont.height();
+	        bgW = $bg.width();
+	        bgH = $bg.height();
+	        diffX = (winW - contW) / 2;
+	        diffY = (winH - contH) / 2;
+	        moveContent({
+	            pageX: winWHalf,
+	            pageY: winHHalf
+	        });
+	    });
+	});
+	</script>
+</body>
+</html>
+<style>@font-face {
+  src: url(../fonts/Metropolis_1920.otf);
+  font-family: Metropolis;
+}
+@font-face {
+  src: url(../fonts/PFSquareSansPro-Medium.otf);
+  font-family: pfs-medium;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+  height: 100%;
+  border: 10px solid #000;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - 52.5vh - 10px);
+  left: calc(50% - 52.5vw - 10px);
+  width: calc(105% + 20px);
+  height: calc(105% + 20px);
+  background-image: url(http://i.imgur.com/PDUVQFN.jpg);
+  background-size: cover;
+}
+.bg h1{
+  text-align: center;
+  margin-top: 70px;
+}
+.content {
+  position: absolute;
+  width: 200rem;
+  height: 127.5rem;
+  left: calc(50% - 100rem);
+  top: calc(50% - 63.75rem);
+  will-change: top, left;
+  z-index: 100;
+  will-change: transform;
+}
+
+.block {
+  position: absolute;
+}
+.block:nth-child(1) {
+  top: 15rem;
+  left: 85rem;
+}
+.block:nth-child(1) .sec-img {
+  margin-left: 2rem;
+  margin-top: -5rem;
+}
+.block:nth-child(1) .link {
+  bottom: 5rem;
+  left: 3rem;
+}
+.block:nth-child(1) .sec-info {
+  bottom: 3.5rem;
+  left: 3rem;
+}
+.block:nth-child(2) {
+  top: 35rem;
+  left: 135rem;
+}
+.block:nth-child(2) .sec-img {
+  margin-left: -10rem;
+  margin-top: -12rem;
+}
+.block:nth-child(2) .link {
+  color: #64B5F6;
+  top: 4rem;
+  left: 4rem;
+}
+.block:nth-child(2) .sec-info {
+  color: #64B5F6;
+  top: 2.5rem;
+  left: 4rem;
+}
+.block:nth-child(3) {
+  top: 80rem;
+  left: 120rem;
+}
+.block:nth-child(3) .sec-img {
+  margin-right: -5rem;
+  margin-top: 3rem;
+}
+.block:nth-child(3) .link {
+  color: #AB47BC;
+  top: 3rem;
+  left: 4rem;
+}
+.block:nth-child(3) .sec-info {
+  color: #AB47BC;
+  top: 6rem;
+  left: 4rem;
+}
+.block:nth-child(4) {
+  top: 70rem;
+  left: 40rem;
+}
+.block:nth-child(4) .prime-img {
+  display: block;
+}
+.block:nth-child(4) .sec-img {
+  display: block;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+.block:nth-child(4) .link {
+  color: #EF5350;
+  top: 3rem;
+  right: 5rem;
+}
+.block:nth-child(4) .sec-info {
+  color: #EF5350;
+  top: 6rem;
+  right: 5rem;
+}
+.block:nth-child(5) {
+  top: 30rem;
+  left: 30rem;
+}
+.block:nth-child(5) .sec-img {
+  margin-left: -57rem;
+  margin-top: 3rem;
+}
+.block:nth-child(5) .link {
+  color: #4CAF50;
+  bottom: 4rem;
+  right: 3rem;
+}
+.block:nth-child(5) .sec-info {
+  color: #4CAF50;
+  bottom: 7rem;
+  right: 3rem;
+}
+.block img {
+  position: relative;
+  opacity: 0.3;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.5s 0.3s;
+          transition: opacity 0.3s, transform 0.5s 0.3s;
+  will-change: transform;
+}
+.block .prime-img {
+  z-index: 50;
+  width: 35rem;
+}
+.block .sec-img {
+  vertical-align: top;
+  z-index: 100;
+  width: 20rem;
+}
+.block .link {
+  position: absolute;
+  z-index: 200;
+  color: #fff;
+  font-family: Metropolis;
+  font-size: 3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.block .sec-info {
+  position: absolute;
+  z-index: 400;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-family: pfs-medium;
+  -webkit-transform: rotateX(90deg);
+          transform: rotateX(90deg);
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.53, 0.11, 0.76, 1.38), opacity 0.3s 0.5s;
+          transition: transform 0.5s cubic-bezier(0.53, 0.11, 0.76, 1.38), opacity 0.3s 0.5s;
+  will-change: transform;
+  -webkit-transform-origin: 50% 100%;
+      -ms-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+}
+.block:hover img {
+  opacity: 1;
+  -webkit-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+          transform: scale(1.3);
+}
+.block:hover .sec-info {
+  opacity: 1;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+  -webkit-transition: -webkit-transform 0.5s 0.3s cubic-bezier(0.53, 0.11, 0.76, 1.38), opacity 0.3s;
+          transition: transform 0.5s 0.3s cubic-bezier(0.53, 0.11, 0.76, 1.38), opacity 0.3s;
+}</style>
