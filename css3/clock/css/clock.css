@@ -1,0 +1,35 @@
+#clock {
+	position: relative;
+	width: 50vw;
+	height: 50vw;
+	margin: 20px auto 0 auto;
+	background: url(../img/clockface.jpg);
+	-webkit-background-size: 50vw;
+	background-size: 50vw;
+	list-style: none;
+}
+#sec, #min, #hour {
+	position: absolute;
+	width: 2.5vw;
+	height: 50vw;
+	top: 0px;
+	left: 23.75vw;
+}
+#sec {
+	background: url(../img/sechand.png);
+	z-index: 3;
+	-webkit-background-size: 2.5vw 50vw;
+	background-size: 2.5vw 50vw;
+}
+#min {
+	background: url(../img/minhand.png);
+	z-index: 2;
+	-webkit-background-size: 2.5vw 50vw;
+	background-size: 2.5vw 50vw;
+}
+#hour {
+	background: url(../img/hourhand.png);
+	z-index: 1;
+	-webkit-background-size: 2.5vw 50vw;
+	background-size: 2.5vw 50vw;
+}

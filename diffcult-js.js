@@ -524,3 +524,10 @@ try {
 
 parseInt(0.0000001);// 1
 "1325239449538" | 0; // -1905444926
+
+var a = {n:1};
+a.x = a = {n:2};
+console.log(a);//Object {n: 2}
+console.log(a.x);//undefined
+
+// 先执行a.x = a ,然后 a = {n:2}改变了a的指向

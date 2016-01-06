@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="http://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
+    <style>
+    #us {
+      position: fixed;
+      top: 100px;
+      left: 50px;
+      background-color: #fff;
+      color: #007aff;
+      font-size: 30px;
+    }
+    </style>
+    <script>
+    $(function(){
+      // click必须去除点击事件默认行为，否则会修改hash值，造成页面闪动
+    // 如果是touchstart,touchend,mousedown,mouseup事件不能去除默认行为,否则无法适应js跳转页面
+    // jQuery 的事件行为由jQuery自行阻止，addEventListener的事件行为由原生js阻止,不能相互阻止
+    // 阻止touchstart,touchend(不包括touchmove)默认行为(e.preventDefault()或者return false;)会阻止click事件，以及所有mouse事件
+    // 为什么阻止默认行为后，点击边缘也可以触发!!
+      $(document).on("touchend", "#us", function(e){
+          e.preventDefault();
+      })
+      $("#us").on("click", function(){
+        alert("click");
+      })
+      document.getElementById("us").addEventListener("touchstart", function(e){
+        e.preventDefault();
+      },true)
+      document.getElementById("us").addEventListener("click", function(e){
+        alert("addEventListener 的click")
+      },true)
+    })
+    </script>
+  </head>
+  <body>
+    <a href="#ppp" id="us">fixedbtns111111111</a>
+  </body>
+</html>

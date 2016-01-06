@@ -240,7 +240,17 @@ function removeClass(e, c) {
     e.className = t.replace(/(^\s*)|(\s*$)/g, ''); // 去掉首尾空白
 }
 removeClass(document.body, 'myclass1 myclass2');
-
+//IE也没有trim
+String.prototype.trim= function(){  
+    // 用正则表达式将前后空格  
+    // 用空字符串替代。  
+    return this.replace(/(^\s*)|(\s*$)/g, "");  
+}
+//Array的shuffle函数
+Array.prototype.shuffle = function() {
+    for(var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
+    return this;
+};
 // 检查是否含有某类 $(el).hasClass(className);
 function hasClass(el, className) {
     if (el.classList)
