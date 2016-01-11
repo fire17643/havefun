@@ -497,6 +497,26 @@ var extend = function (defaults, options) {
     });
     return extended;
 };
+
+// 深拷贝对象
+// 新对象的__proto__指向了旧对象，
+// 的确新对象的改变不影响旧对象，但是旧对象的改变就会影响新对象的默认值了
+function deepCopy(obj) {
+    //TODO: 实现深拷贝
+  var newObj;
+  newObj = obj.constructor == Object?Object.create(obj):{};
+  return newObj;
+}
+
+// 
+function deepCopy(obj) {
+    if (typeof(obj) != 'object' || obj == null || obj == undefined) return obj;
+    var re = obj.constructor == Array ? [] : {};
+    for (var i in obj) {
+        re[i] = deepCopy(obj[i]);
+    }
+    return re;
+}
 //遍历 
 var each = function(obj, func, context) { 
     var length = obj.length, i = -1; 
@@ -965,6 +985,20 @@ $('code').replaceWith(function(){
     return $("<pre />").append($(this).contents());
 });
 
+var template = function(s,d){
+                 for(var p in d)
+                   s=s.replace(new RegExp('{'+p+'}','g'), d[p]);
+                 return s;
+                }
+                var temp = "<div class=\"simple-modal-header\"> \
+            <h1>{_TITLE_}</h1> \
+          </div> \
+          <div class=\"simple-modal-body\"> \
+            <div class=\"contents\">{_CONTENTS_}</div> \
+          </div> \
+          <div class=\"simple-modal-footer\"></div>"
+                temp = template(temp, {"_TITLE_":"", "_CONTENTS_":"options.contents"});
+                console.log(temp)
 
 var myBind = function (fn, context) {
 	var args = Array.prototype.slice.call(arguments,2);

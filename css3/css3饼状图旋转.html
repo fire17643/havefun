@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script src="http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"></script>
 	<style>
 		body {
 			-webkit-backface-visibility: hidden;
@@ -99,5 +100,94 @@
 			<div class="cube4"></div>
 		</div>
 	</div>
+<style>
+.out {
+	position: relative;
+}
+	.left,.right {
+		position: absolute;
+		width: 100px;
+		height: 200px;
+		overflow: hidden;
+		border-radius: 100px 0 0 100px;
+		transform-style: preserve-3d;
+		background-color: #c8c8c8;
+	}
+	.right {
+		border-radius: 0 100px 100px 0;
+		left: 100px;
+	}
+	.left:before, .right:before {
+		width: 400px;
+		height: 400px;
+		top: -100px;
+		position: absolute;
+		content: "";
+		
+	}
+	.in {
+		position: absolute;
+		width: 150px;
+		height: 150px;
+		background-color: #ddd;
+		top: 25px;
+		left: 25px;
+		z-index: 2;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #007aff;
+		font-size: 16px;
+	}
+	.count {
+		color: red;
+	}
+	.left:before {
+		background-color: #007aff;
+		right: 0;
+		transform: rotate(-180deg);
+		-webkit-transform-origin: right center;
+	}
+	.right:before {
+		background-color: #007aff;
+		left: 0;
+		transform: rotate(180deg);
+		-webkit-transform-origin: left center;
+	}
+	.out.active .right:before {
+		transform: rotate(360deg);
+		transition: transform ease-in 1s;
+	}
+	.out.active .left:before {
+		transform: rotate(0deg);
+		transition: transform ease-out 1s;
+		transition-delay: 1s;
+	}
+	
+</style>
+	<div class="out">
+		<div class="in">还剩<span class="count">20</span>秒	</div>
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+	<script>
+		$(function(){
+			$(".out").on("click", function(){
+				$(this).addClass("active");
+				var sum = 2;
+				var intervalId = setInterval(function(){
+					sum -=.1;
+					sum = sum.toFixed(1);
+					if(sum <=0) {
+						sum = 0;
+						clearInterval(intervalId);
+						//$(".out").removeClass("active");
+					}
+					$(".count").html(sum);
+				},100)
+			})
+		})
+	</script>
 </body>
 </html>
