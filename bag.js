@@ -1113,3 +1113,7 @@ String.prototype.parseJSON = function () {
         root.flyPanels = factory(root);
     }
 })(typeof global !== 'undefined' ? global : this.window || this.global, function (root) {})
+
+function is(obj, type) {
+      return Object.prototype.toString.call(obj).slice(8, -1) === type;
+    }
