@@ -531,3 +531,11 @@ console.log(a);//Object {n: 2}
 console.log(a.x);//undefined
 
 // 先执行a.x = a ,然后 a = {n:2}改变了a的指向
+
+[,,,].join(", ") // , ,
+
+function foo() { } 
+var oldName = foo.name; 
+foo.name = "bar"; 
+[oldName, foo.name]
+// 返回结果还是['foo','foo']，因为ECMA规定了foo.name这个值是可读不可写的。

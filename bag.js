@@ -85,14 +85,14 @@ funcB(function() {})
 
 
 //数组去重
-Array.prototype.unique = function () {
+Array.prototype.unique = function() {
     var n = []; //一个新的临时数组
     for (var i = 0; i < this.length; i++) //遍历当前数组
     {
         if (n.indexOf(this[i]) == -1) n.push(this[i]);
     }
     return n;
-} 
+}
 Array.prototype.unique = function() {
     var a = {},
         c = [],
@@ -226,12 +226,21 @@ alert(new Date().format("yyyy-MM-dd hh:mm:ss"));
 // </summary>
 // <param name="x">待显示的日期时间，例如new Date()</param>
 // <param name="y">需要显示的格式，例如yyyy-MM-dd hh:mm:ss</param>
-function date2str(x,y) {
-    var z ={y:x.getFullYear(),M:x.getMonth()+1,d:x.getDate(),h:x.getHours(),m:x.getMinutes(),s:x.getSeconds()};
-    return y.replace(/(y+|M+|d+|h+|m+|s+)/g,function(v) {return ((v.length>1?"0":"")+eval('z.'+v.slice(-1))).slice(-(v.length>2?v.length:2))});
+function date2str(x, y) {
+    var z = {
+        y: x.getFullYear(),
+        M: x.getMonth() + 1,
+        d: x.getDate(),
+        h: x.getHours(),
+        m: x.getMinutes(),
+        s: x.getSeconds()
+    };
+    return y.replace(/(y+|M+|d+|h+|m+|s+)/g, function(v) {
+        return ((v.length > 1 ? "0" : "") + eval('z.' + v.slice(-1))).slice(-(v.length > 2 ? v.length : 2))
+    });
 }
-alert(date2str(new Date(),"yy-M-d h:m:s"));
-alert(date2str(new Date(),"yyyy-MM-d h:m:s"));
+alert(date2str(new Date(), "yy-M-d h:m:s"));
+alert(date2str(new Date(), "yyyy-MM-d h:m:s"));
 
 // 获得URL中GET参数值
 
@@ -297,37 +306,39 @@ function f2() {
 
 alert(f2() == f2()); // false
 
-function isNum (n) {
-    return ('number' === typeof n) ? true : 
-    'object' === typeof n ? n*1 == n : 
-    false;
+function isNum(n) {
+    return ('number' === typeof n) ? true :
+        'object' === typeof n ? n * 1 == n :
+        false;
 }
 
 // Javascript最简单的把html字符串编码的方法
-function bian(a){return new Option(a).innerHTML}
+function bian(a) {
+    return new Option(a).innerHTML
+}
 var a = '<div id="a">aklsdjfklsjdfl</div>';
 alert(bian(a));
 
 // javascript正则表达式<[^>]+>：匹配所有html标签 
-("<p>文字内容</p><br/>input").replace(/<[^>]+>/g,"change")
+("<p>文字内容</p><br/>input").replace(/<[^>]+>/g, "change")
 
 // Javascript:最高效率的数组乱序方法
 if (!Array.prototype.shuffle) {
     Array.prototype.shuffle = function() {
-        for(var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
+        for (var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
         return this;
     };
 }
 arr.shuffle();
 
 
-function createElement(string) {
-　　 var elem = document.createElement("div");
-　　 elem.innerHTML = string;
-　　 return elem.childNodes[0];
+function createElement(string) {　　
+    var elem = document.createElement("div");　　
+    elem.innerHTML = string;　　
+    return elem.childNodes[0];
 }
 
-var mq = window.matchMedia( "(min-width: 500px)" );
+var mq = window.matchMedia("(min-width: 500px)");
 
 Array.prototype.remove = function(from, to) {
     var rest = this.slice((to || from) + 1 || this.length);
@@ -340,7 +351,7 @@ Array.prototype.remove = function(from, to) {
 $.fn.smartFloat = function() {
     var position = function(element) {
         var top = element.position().top,
-        pos = element.css("position");
+            pos = element.css("position");
         $(window).scroll(function() {
             var scrolls = $(this).scrollTop();
             if (scrolls > top) {
@@ -371,33 +382,33 @@ $.fn.smartFloat = function() {
 // 格式化数字
 function format(num) {
     num = num + '';
-    var reg=/(\d{1,3})(?=(\d{3})+(?:$|\D))/g;
-    return num.replace(reg,"$1,");
+    var reg = /(\d{1,3})(?=(\d{3})+(?:$|\D))/g;
+    return num.replace(reg, "$1,");
 }
 
 // 全屏api必须是用户操作才能调用
-function launchFullScreen(element) {  
-    if(element.requestFullScreen) {  
-        element.requestFullScreen();  
-    } else if(element.mozRequestFullScreen) {  
-        element.mozRequestFullScreen();  
-    } else if(element.webkitRequestFullScreen) {  
-        element.webkitRequestFullScreen();  
+function launchFullScreen(element) {
+    if (element.requestFullScreen) {
+        element.requestFullScreen();
+    } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullScreen) {
+        element.webkitRequestFullScreen();
     }
 }
-document.querySelectorAll(".aside")[0].onclick=function(){
+document.querySelectorAll(".aside")[0].onclick = function() {
     launchFullScreen(this);
 };
 // 退出全屏
-function cancelFullScreen() {  
-    if(document.exitFullscreen) {  
-        document.exitFullscreen();  
-    } else if(document.mozCancelFullScreen) {  
-        document.mozCancelFullScreen();  
-    } else if(document.webkitCancelFullScreen) {  
-        document.webkitCancelFullScreen();  
+function cancelFullScreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
     }
-}  
+}
 
 
 // transitionEnd在安卓上失效
@@ -481,32 +492,22 @@ function listenTransition(target, duration, callbackFn) {
     target.transitionTimer = setTimeout(handler, duration + 50);
 }
 
-var extend = function(obj, hash) { 
-    each(hash, function(key, value) { 
-        obj[key] = value; 
-    }); 
-    return obj; 
-}; 
-var extend = function (defaults, options) {
+var extend = function(obj, hash) {
+    each(hash, function(key, value) {
+        obj[key] = value;
+    });
+    return obj;
+};
+var extend = function(defaults, options) {
     var extended = {};
-    forEach(defaults, function (value, prop) {
+    forEach(defaults, function(value, prop) {
         extended[prop] = defaults[prop];
     });
-    forEach(options, function (value, prop) {
+    forEach(options, function(value, prop) {
         extended[prop] = options[prop];
     });
     return extended;
 };
-
-// 深拷贝对象
-// 新对象的__proto__指向了旧对象，
-// 的确新对象的改变不影响旧对象，但是旧对象的改变就会影响新对象的默认值了
-function deepCopy(obj) {
-    //TODO: 实现深拷贝
-  var newObj;
-  newObj = obj.constructor == Object?Object.create(obj):{};
-  return newObj;
-}
 
 // 
 function deepCopy(obj) {
@@ -518,130 +519,142 @@ function deepCopy(obj) {
     return re;
 }
 //遍历 
-var each = function(obj, func, context) { 
-    var length = obj.length, i = -1; 
-    if(length !== undefined) { 
-        while(++i &lt; length) if(func.call(context, obj[i], i, obj, length) === false) break; 
-    }else for(var key in obj) 
-        if(obj.hasOwnProperty(key)) 
-        if(func.call(context, key, obj[key], obj) ===   false) break; 
-        return obj; 
-}; 
+var each = function(obj, func, context) {
+    var length = obj.length,
+        i = -1;
+    if (length !== undefined) {
+        while (++i & lt; length)
+            if (func.call(context, obj[i], i, obj, length) === false) break;
+    } else
+        for (var key in obj)
+            if (obj.hasOwnProperty(key))
+                if (func.call(context, key, obj[key], obj) === false) break;
+    return obj;
+};
 
-{ 
+{
     //类型检测 
     isArray: function(v) { //是否为数组 
-        return string.apply(v) === "[object Array]"; 
-    }, 
+        return string.apply(v) === "[object Array]";
+    },
     isFunction: function(v) { //是否为函数体 
-        return string.apply(v) === "[object Function]"; 
-    }, 
+        return string.apply(v) === "[object Function]";
+    },
     isNumber: function(v) { //是否为数字 
-        return typeof v === "number" && isFinite(v); 
-    }, 
+        return typeof v === "number" && isFinite(v);
+    },
     isDate: function(v) { //是否为日期 
-        return string.apply(v) === "[object Date]"; 
-    }, 
+        return string.apply(v) === "[object Date]";
+    },
     isElement: function(v) { //是否为Dom元素节点 
-        return !!(v && v.nodeType === 1); 
+        return !!(v && v.nodeType === 1);
     }
 }
 
-var getPosition = function() { 
-    return docelem.getBoundingClientRect && function(o){ 
-        var pos = o.getBoundingClientRect(), root = o.ownerDocument || o.doc; 
-        return {left:pos.left+root.documentElement.scrollLeft,top:pos.top+root.documentElement.scrollTop}; 
-    }||function(o){ 
-        var x = 0, y = 0; 
-        do{x += o.offsetLeft;y += o.offsetTop;}while((o=o.offsetParent)); 
-        return {left:x,top:y}; 
+var getPosition = function() {
+    return docelem.getBoundingClientRect && function(o) {
+        var pos = o.getBoundingClientRect(),
+            root = o.ownerDocument || o.doc;
+        return {
+            left: pos.left + root.documentElement.scrollLeft,
+            top: pos.top + root.documentElement.scrollTop
+        };
+    } || function(o) {
+        var x = 0,
+            y = 0;
+        do {
+            x += o.offsetLeft;
+            y += o.offsetTop;
+        } while ((o = o.offsetParent));
+        return {
+            left: x,
+            top: y
+        };
     };
 }()
 
 //设置cookie 
-var setCookie = function(n, v, t){ 
-    var exp = new Date(); 
-    exp.setTime(exp.getTime() + (t||24)*60*60*1000); 
-    doc.cookie = n + "="+ escape(v) + ";expires=" + exp.toGMTString()+';path=/'; 
-}, 
-//获取cookie 
-var getCookie = function(n){ 
-    var arr = doc.cookie.match(new RegExp("(^| )"+ n +"=([^;]*)(;|$)")); 
-    if(arr != null) return unescape(arr[2]); 
-    return null; 
-}
-//取不重复唯一值 
-var getUid = function(){ 
-    return "uid"+(new Date()).getTime()+ parseInt(Math.random()*100000); 
-}; 
+var setCookie = function(n, v, t) {
+        var exp = new Date();
+        exp.setTime(exp.getTime() + (t || 24) * 60 * 60 * 1000);
+        doc.cookie = n + "=" + escape(v) + ";expires=" + exp.toGMTString() + ';path=/';
+    },
+    //获取cookie 
+    var getCookie = function(n) {
+            var arr = doc.cookie.match(new RegExp("(^| )" + n + "=([^;]*)(;|$)"));
+            if (arr != null) return unescape(arr[2]);
+            return null;
+        }
+        //取不重复唯一值 
+var getUid = function() {
+    return "uid" + (new Date()).getTime() + parseInt(Math.random() * 100000);
+};
 //获取指定范围的随机数 
-var random = function (n1, n2){ 
-    return Math.floor(Math.random()*(n2-n1+1)) + n1; 
-}; 
+var random = function(n1, n2) {
+    return Math.floor(Math.random() * (n2 - n1 + 1)) + n1;
+};
 //数字转化为中文 
-num2gb = function (n){ 
-    return "零一二三四五六七八九".split("")[n]; 
-}; 
+num2gb = function(n) {
+    return "零一二三四五六七八九".split("")[n];
+};
 num2gb(3)
 
 
- // js获取网页选中部分的内容，包含html代码
-function getSelectedContents(){
+// js获取网页选中部分的内容，包含html代码
+function getSelectedContents() {
     if (window.getSelection) { //chrome,firefox,opera
-        var range=window.getSelection().getRangeAt(0);
+        var range = window.getSelection().getRangeAt(0);
         var container = document.createElement('div');
         container.appendChild(range.cloneContents());
         return container.innerHTML;
         //return window.getSelection(); //只复制文本
-    }
-    else if (document.getSelection) { //其他
-        var range=window.getSelection().getRangeAt(0);
+    } else if (document.getSelection) { //其他
+        var range = window.getSelection().getRangeAt(0);
         var container = document.createElement('div');
         container.appendChild(range.cloneContents());
         return container.innerHTML;
         //return document.getSelection(); //只复制文本
-    }
-    else if (document.selection) { //IE特有的
+    } else if (document.selection) { //IE特有的
         return document.selection.createRange().htmlText;
         //return document.selection.createRange().text; //只复制文本
     }
-} 
+}
 // 如何将阿拉伯数字每三位一逗号分隔，如：15000000转化为15,000,000
 "115000000".split("").reverse().join("").replace(/(\d{3})(?=[^$])/g, "$1,").split("").reverse().join("");
-'1500000000000'.replace(/\B(?=(\d{3})+$)/g,',');
+'1500000000000'.replace(/\B(?=(\d{3})+$)/g, ',');
 // 带小数点的
-'123123211312.333123'.replace(/(?=(?!^)(?:\d{3})+(?:\.|$))(\d{3}(\.\d+$)?)/g,',$1');
+'123123211312.333123'.replace(/(?=(?!^)(?:\d{3})+(?:\.|$))(\d{3}(\.\d+$)?)/g, ',$1');
 
 
 // 取随机数
-r = 0 | Math.random()*16;// 同Math.round
-r = ~~(Math.random()*16)
+r = 0 | Math.random() * 16; // 同Math.round
+r = ~~(Math.random() * 16)
 
 // 一个JavaScript函数 parseQueryString，
 // 它的用途是把URL参数解析为一个对象var obj = parseQueryString(url); alert(obj.key[0]) 
 // 输出第一个参数
 var url1 = "http://www.oc35.com/resume.html?user_id=001&user_name=yubiaobin";
 
-function parentQueryString(url){
+function parentQueryString(url) {
     var arguments = {};
     var arr = url.split("?");
-    if(arr.length <= 1){
+    if (arr.length <= 1) {
         return arguments;
     }
     arr = arr[1].split("&");
-    for(var i = 0, k = arr.length; i < k; i++){
+    for (var i = 0, k = arr.length; i < k; i++) {
         var a = arr[i].split("=");
         arguments[a[0]] = a[1];
     }
     return arguments;
 }
 
-    var result = parentQueryString(url1);
-    alert(result["user_id"]);
+var result = parentQueryString(url1);
+alert(result["user_id"]);
 
 function urlToString(url, parames) {
     var str = url;
-    if(parames.constructor === Object && parames != {}) {
+    if (parames.constructor === Object && parames != {}) {
         str += "?";
         var para;
         for (var i in parames) {
@@ -652,18 +665,23 @@ function urlToString(url, parames) {
     return str.slice(0, -1);
 }
 //求和
-var a = [1,3,4,65,2,1,3];
+var a = [1, 3, 4, 65, 2, 1, 3];
 var arr;
 
 a = a.join('+');
-arr = new Function('return '+ a)();
+arr = new Function('return ' + a)();
 console.log(arr);
 
-[
-    { name: "Robin Van PurseStrings", age: 30 },
-    { name: "Theo Walcott", age: 24 },
-    { name: "Bacary Sagna", age: 28  }
-].sort(function(obj1, obj2) {
+[{
+    name: "Robin Van PurseStrings",
+    age: 30
+}, {
+    name: "Theo Walcott",
+    age: 24
+}, {
+    name: "Bacary Sagna",
+    age: 28
+}].sort(function(obj1, obj2) {
     // Ascending: first age less than the previous
     // 实现增序排列：前者的 age 小于后者
     // 会改变数组的值
@@ -671,99 +689,98 @@ console.log(arr);
 });
 
 
-var e = element || (document.compatMode == "CSS1Compat" ? document.documentElement
-                            : document.body);
+var e = element || (document.compatMode == "CSS1Compat" ? document.documentElement : document.body);
 
 var _log = console.log;
 console.log = function() {
-  _log.call(console, '%c' + [].slice.call(arguments).join(' '), 'color:transparent;text-shadow:0 0 2px rgba(0,0,0,.5);');
+    _log.call(console, '%c' + [].slice.call(arguments).join(' '), 'color:transparent;text-shadow:0 0 2px rgba(0,0,0,.5);');
 };
 
 
-$({property: 0}).animate({property: 100}, {
-                duration: 3000,
-                step: function() {
-                    var percentage = Math.round(this.property);
+$({
+    property: 0
+}).animate({
+    property: 100
+}, {
+    duration: 3000,
+    step: function() {
+        var percentage = Math.round(this.property);
 
-                    $('#progress').css('width',  percentage+"%");
+        $('#progress').css('width', percentage + "%");
 
-                     if(percentage == 100) {
-                         $("#progress").addClass("done");//完成，隐藏进度条
-                     }
-                }
-            });
+        if (percentage == 100) {
+            $("#progress").addClass("done"); //完成，隐藏进度条
+        }
+    }
+});
 
 /// Javascript复制JSON数据
 var a = JSON.parse(JSON.stringify(jsonobj));
 
 // 延迟函数sleep
-function sleep(milliSeconds){
-   var startTime = new Date().getTime();
-   while (new Date().getTime() < startTime + milliSeconds);
+function sleep(milliSeconds) {
+    var startTime = new Date().getTime();
+    while (new Date().getTime() < startTime + milliSeconds);
 }
- 
+
 //use
- 
+
 sleep(10000);
 
 // 用0补全位数
 function prefixInteger(num, length) {
-  return (num / Math.pow(10, length)).toFixed(length).substr(2);
+    return (num / Math.pow(10, length)).toFixed(length).substr(2);
 }
 
 
 //从数字0到最大值之间获取一个数字数组
 
-var numbersArray = [] , max = 100;
- 
-for( var i=1; numbersArray.push(i++) < max;);  // numbers = [0,1,2,3 ... 100]
+var numbersArray = [],
+    max = 100;
+
+for (var i = 1; numbersArray.push(i++) < max;); // numbers = [0,1,2,3 ... 100]
 
 //生成一个随机字符串
 
 function generateRandomAlphaNum(len) {
     var rdmstring = "";
-    for( ; rdmString.length < len; rdmString  += Math.random().toString(36).substr(2));
-    return  rdmString.substr(0, len);
+    for (; rdmString.length < len; rdmString += Math.random().toString(36).substr(2));
+    return rdmString.substr(0, len);
 }
 /*
 javascript检测浏览器的缩放状态
 detectZoom 函数的返回值如果是 100 就是默认缩放级别，大于 100 则是放大了，小于 100 则是缩小了
 
 */
-function detectZoom (){ 
+function detectZoom() {
     var ratio = 0,
         screen = window.screen,
         ua = navigator.userAgent.toLowerCase();
     if (window.devicePixelRatio !== undefined) {
-            ratio = window.devicePixelRatio;
-    }
-    else if (~ua.indexOf('msie')) {    
+        ratio = window.devicePixelRatio;
+    } else if (~ua.indexOf('msie')) {
         if (screen.deviceXDPI && screen.logicalXDPI) {
             ratio = screen.deviceXDPI / screen.logicalXDPI;
         }
-    }
-    else if (window.outerWidth !== undefined && window.innerWidth !== undefined) {
+    } else if (window.outerWidth !== undefined && window.innerWidth !== undefined) {
         ratio = window.outerWidth / window.innerWidth;
     }
-    
-    if (ratio){
+
+    if (ratio) {
         ratio = Math.round(ratio * 100);
     }
-    
+
     return ratio;
 };
 
-var requestAnimationFrame = window.requestAnimationFrame
-    || window.mozRequestAnimationFrame
-    || window.webkitRequestAnimationFrame
-    || window.msRequestAnimationFrame
-    || window.oRequestAnimationFrame
-    || function(callback) {
-        setTimeout(callback, 17);
-    };
+var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame || function(callback) {
+    setTimeout(callback, 17);
+};
 animate(0, 300, 500);
+
 function animate(from, to, time) {
     var startTime = Date.now();
+
     function go(timestamp) {
         timestamp = timestamp || Date.now();
         var progress = timestamp - startTime;
@@ -784,20 +801,20 @@ function animate(from, to, time) {
 }
 
 // 判断空对象
-function isEmptyObject(O){
-  for (var x in O){
-    return false;
-  }
-  return true;
+function isEmptyObject(O) {
+    for (var x in O) {
+        return false;
+    }
+    return true;
 }
 // 一万亿以内的人民币小写转大写，暂不考虑连续零的处理
-function moneyCaseConvert(num){
-    var upperArr=["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"],
-        levelArr=["","拾","佰","仟","万","拾","佰","仟","亿","拾","佰","仟","万"],
-        numArr=num.toString().split("").reverse(),
-        result=[];
-    for(var i=numArr.length-1;i>=0;i--)
-        result.push(upperArr[numArr[i]]+levelArr[i]);
+function moneyCaseConvert(num) {
+    var upperArr = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"],
+        levelArr = ["", "拾", "佰", "仟", "万", "拾", "佰", "仟", "亿", "拾", "佰", "仟", "万"],
+        numArr = num.toString().split("").reverse(),
+        result = [];
+    for (var i = numArr.length - 1; i >= 0; i--)
+        result.push(upperArr[numArr[i]] + levelArr[i]);
     return result.join("");
 }
 
@@ -811,22 +828,23 @@ console.log(moneyCaseConvert(987654321));
 console.log(moneyCaseConvert(1234));
 
 // 
-function numberFormat(val){
-    var numArr=String(val).split(".");
-    numArr[0] = numArr[0].replace(new RegExp("(\\d)(?=(\\d{3})+$)","ig"),"$1,");
+function numberFormat(val) {
+    var numArr = String(val).split(".");
+    numArr[0] = numArr[0].replace(new RegExp("(\\d)(?=(\\d{3})+$)", "ig"), "$1,");
     return numArr.join(".");
 }
 //Test
-console.log(numberFormat(1234.00056));//123,456
-console.log(numberFormat(0.12345678));//12,345,678
+console.log(numberFormat(1234.00056)); //123,456
+console.log(numberFormat(0.12345678)); //12,345,678
 
 //正则分组图片链接
-var testStr="<div><img src='/a.jpg' alt='' /><span>test</span><img src='/b.jpg' alt='' /><span>TTest</span><img src='/c.png' alt='' /></div>";
-var reg=/<img\ssrc='(.*?)'\s+alt=''\s*\/>/g;
-var match=reg.exec(testStr),results=[];
-while(match != null){
+var testStr = "<div><img src='/a.jpg' alt='' /><span>test</span><img src='/b.jpg' alt='' /><span>TTest</span><img src='/c.png' alt='' /></div>";
+var reg = /<img\ssrc='(.*?)'\s+alt=''\s*\/>/g;
+var match = reg.exec(testStr),
+    results = [];
+while (match != null) {
     results.push(match[1]);
-    match=reg.exec(testStr);
+    match = reg.exec(testStr);
 }
 console.log(results);
 /*
@@ -837,137 +855,133 @@ JavaScript中base64编码
 
 var Base64 = {
 
-// private property
-_keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+    // private property
+    _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
 
-// public method for encoding
-encode : function (input) {
-    var output = "";
-    var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
-    var i = 0;
+    // public method for encoding
+    encode: function(input) {
+        var output = "";
+        var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+        var i = 0;
 
-    input = Base64._utf8_encode(input);
+        input = Base64._utf8_encode(input);
 
-    while (i < input.length) {
+        while (i < input.length) {
 
-        chr1 = input.charCodeAt(i++);
-        chr2 = input.charCodeAt(i++);
-        chr3 = input.charCodeAt(i++);
+            chr1 = input.charCodeAt(i++);
+            chr2 = input.charCodeAt(i++);
+            chr3 = input.charCodeAt(i++);
 
-        enc1 = chr1 >> 2;
-        enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
-        enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
-        enc4 = chr3 & 63;
+            enc1 = chr1 >> 2;
+            enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+            enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+            enc4 = chr3 & 63;
 
-        if (isNaN(chr2)) {
-            enc3 = enc4 = 64;
-        } else if (isNaN(chr3)) {
-            enc4 = 64;
+            if (isNaN(chr2)) {
+                enc3 = enc4 = 64;
+            } else if (isNaN(chr3)) {
+                enc4 = 64;
+            }
+
+            output = output +
+                this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
+                this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+
         }
 
-        output = output +
-        this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
-        this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+        return output;
+    },
 
+    // public method for decoding
+    decode: function(input) {
+        var output = "";
+        var chr1, chr2, chr3;
+        var enc1, enc2, enc3, enc4;
+        var i = 0;
+
+        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+        while (i < input.length) {
+
+            enc1 = this._keyStr.indexOf(input.charAt(i++));
+            enc2 = this._keyStr.indexOf(input.charAt(i++));
+            enc3 = this._keyStr.indexOf(input.charAt(i++));
+            enc4 = this._keyStr.indexOf(input.charAt(i++));
+
+            chr1 = (enc1 << 2) | (enc2 >> 4);
+            chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+            chr3 = ((enc3 & 3) << 6) | enc4;
+
+            output = output + String.fromCharCode(chr1);
+
+            if (enc3 != 64) {
+                output = output + String.fromCharCode(chr2);
+            }
+            if (enc4 != 64) {
+                output = output + String.fromCharCode(chr3);
+            }
+
+        }
+
+        output = Base64._utf8_decode(output);
+
+        return output;
+
+    },
+
+    // private method for UTF-8 encoding
+    _utf8_encode: function(string) {
+        string = string.replace(/\r\n/g, "\n");
+        var utftext = "";
+
+        for (var n = 0; n < string.length; n++) {
+
+            var c = string.charCodeAt(n);
+
+            if (c < 128) {
+                utftext += String.fromCharCode(c);
+            } else if ((c > 127) && (c < 2048)) {
+                utftext += String.fromCharCode((c >> 6) | 192);
+                utftext += String.fromCharCode((c & 63) | 128);
+            } else {
+                utftext += String.fromCharCode((c >> 12) | 224);
+                utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                utftext += String.fromCharCode((c & 63) | 128);
+            }
+
+        }
+
+        return utftext;
+    },
+
+    // private method for UTF-8 decoding
+    _utf8_decode: function(utftext) {
+        var string = "";
+        var i = 0;
+        var c = c1 = c2 = 0;
+
+        while (i < utftext.length) {
+
+            c = utftext.charCodeAt(i);
+
+            if (c < 128) {
+                string += String.fromCharCode(c);
+                i++;
+            } else if ((c > 191) && (c < 224)) {
+                c2 = utftext.charCodeAt(i + 1);
+                string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+                i += 2;
+            } else {
+                c2 = utftext.charCodeAt(i + 1);
+                c3 = utftext.charCodeAt(i + 2);
+                string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+                i += 3;
+            }
+
+        }
+
+        return string;
     }
-
-    return output;
-},
-
-// public method for decoding
-decode : function (input) {
-    var output = "";
-    var chr1, chr2, chr3;
-    var enc1, enc2, enc3, enc4;
-    var i = 0;
-
-    input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-
-    while (i < input.length) {
-
-        enc1 = this._keyStr.indexOf(input.charAt(i++));
-        enc2 = this._keyStr.indexOf(input.charAt(i++));
-        enc3 = this._keyStr.indexOf(input.charAt(i++));
-        enc4 = this._keyStr.indexOf(input.charAt(i++));
-
-        chr1 = (enc1 << 2) | (enc2 >> 4);
-        chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
-        chr3 = ((enc3 & 3) << 6) | enc4;
-
-        output = output + String.fromCharCode(chr1);
-
-        if (enc3 != 64) {
-            output = output + String.fromCharCode(chr2);
-        }
-        if (enc4 != 64) {
-            output = output + String.fromCharCode(chr3);
-        }
-
-    }
-
-    output = Base64._utf8_decode(output);
-
-    return output;
-
-},
-
-// private method for UTF-8 encoding
-_utf8_encode : function (string) {
-    string = string.replace(/\r\n/g,"\n");
-    var utftext = "";
-
-    for (var n = 0; n < string.length; n++) {
-
-        var c = string.charCodeAt(n);
-
-        if (c < 128) {
-            utftext += String.fromCharCode(c);
-        }
-        else if((c > 127) && (c < 2048)) {
-            utftext += String.fromCharCode((c >> 6) | 192);
-            utftext += String.fromCharCode((c & 63) | 128);
-        }
-        else {
-            utftext += String.fromCharCode((c >> 12) | 224);
-            utftext += String.fromCharCode(((c >> 6) & 63) | 128);
-            utftext += String.fromCharCode((c & 63) | 128);
-        }
-
-    }
-
-    return utftext;
-},
-
-// private method for UTF-8 decoding
-_utf8_decode : function (utftext) {
-    var string = "";
-    var i = 0;
-    var c = c1 = c2 = 0;
-
-    while ( i < utftext.length ) {
-
-        c = utftext.charCodeAt(i);
-
-        if (c < 128) {
-            string += String.fromCharCode(c);
-            i++;
-        }
-        else if((c > 191) && (c < 224)) {
-            c2 = utftext.charCodeAt(i+1);
-            string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
-            i += 2;
-        }
-        else {
-            c2 = utftext.charCodeAt(i+1);
-            c3 = utftext.charCodeAt(i+2);
-            string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
-            i += 3;
-        }
-
-    }
-
-    return string;
-}
 }
 
 //encode
@@ -981,45 +995,48 @@ Base64.decode("VGVzdA=="); // Test
 $('code').contents().unwrap().wrap('<pre/>');
 
 //or
-$('code').replaceWith(function(){
+$('code').replaceWith(function() {
     return $("<pre />").append($(this).contents());
 });
 
-var template = function(s,d){
-                 for(var p in d)
-                   s=s.replace(new RegExp('{'+p+'}','g'), d[p]);
-                 return s;
-                }
-                var temp = "<div class=\"simple-modal-header\"> \
+var template = function(s, d) {
+    for (var p in d)
+        s = s.replace(new RegExp('{' + p + '}', 'g'), d[p]);
+    return s;
+}
+var temp = "<div class=\"simple-modal-header\"> \
             <h1>{_TITLE_}</h1> \
           </div> \
           <div class=\"simple-modal-body\"> \
             <div class=\"contents\">{_CONTENTS_}</div> \
           </div> \
           <div class=\"simple-modal-footer\"></div>"
-                temp = template(temp, {"_TITLE_":"", "_CONTENTS_":"options.contents"});
-                console.log(temp)
+temp = template(temp, {
+    "_TITLE_": "",
+    "_CONTENTS_": "options.contents"
+});
+console.log(temp)
 
-var myBind = function (fn, context) {
-	var args = Array.prototype.slice.call(arguments,2);
-	return function () {
-		var innerArgs = Array.prototype.slice.call (arguments);
-		var finalArgs = args.concat (innerArgs);
-		return fn.apply(context,finalArgs);
-	};
-	
+var myBind = function(fn, context) {
+    var args = Array.prototype.slice.call(arguments, 2);
+    return function() {
+        var innerArgs = Array.prototype.slice.call(arguments);
+        var finalArgs = args.concat(innerArgs);
+        return fn.apply(context, finalArgs);
+    };
+
 };
 
-var object = function (o) {
-	function F(){}
-	F.prototype = o;
-	return new F();
+var object = function(o) {
+    function F() {}
+    F.prototype = o;
+    return new F();
 };
 
-var inheritPrototype = function (subType, superType) {
-	var prototype = object(superType.prototype);
-	prototype.constructor = subType;
-	subType.prototype = prototype;
+var inheritPrototype = function(subType, superType) {
+    var prototype = object(superType.prototype);
+    prototype.constructor = subType;
+    subType.prototype = prototype;
 };
 
 /*
@@ -1050,12 +1067,14 @@ function toJSONString(obj) {
             '\n': '\\n',
             '\f': '\\f',
             '\r': '\\r',
-            '"' : '\\"',
+            '"': '\\"',
             '\\': '\\\\'
         },
         s = {
-            array: function (x) {
-                var a = ['['], b, f, i, l = x.length, v;
+            array: function(x) {
+                var a = ['['],
+                    b, f, i, l = x.length,
+                    v;
                 for (i = 0; i < l; i += 1) {
                     v = x[i];
                     f = s[typeof v];
@@ -1073,21 +1092,22 @@ function toJSONString(obj) {
                 a[a.length] = ']';
                 return a.join('');
             },
-            'boolean': function (x) {
+            'boolean': function(x) {
                 return String(x);
             },
-            'null': function (x) {
+            'null': function(x) {
                 return "null";
             },
-            number: function (x) {
+            number: function(x) {
                 return isFinite(x) ? String(x) : 'null';
             },
-            object: function (x) {
+            object: function(x) {
                 if (x) {
                     if (x instanceof Array) {
                         return s.array(x);
                     }
-                    var a = ['{'], b, f, i, v;
+                    var a = ['{'],
+                        b, f, i, v;
                     for (i in x) {
                         v = x[i];
                         f = s[typeof v];
@@ -1107,7 +1127,7 @@ function toJSONString(obj) {
                 }
                 return 'null';
             },
-            string: function (x) {
+            string: function(x) {
                 if (/["\\\x00-\x1f]/.test(x)) {
                     x = x.replace(/([\x00-\x1f\\"])/g, function(a, b) {
                         var c = m[b];
@@ -1125,10 +1145,10 @@ function toJSONString(obj) {
         };
 
     return s.object(obj);
-    };
+};
 
 
-String.prototype.parseJSON = function () {
+String.prototype.parseJSON = function() {
     try {
         return !(/[^,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]/.test(
                 this.replace(/"(\\.|[^"\\])*"/g, ''))) &&
@@ -1138,7 +1158,7 @@ String.prototype.parseJSON = function () {
     }
 };
 
-(function (root, factory) {
+(function(root, factory) {
     if (typeof define === 'function' && define.amd) {
         define([], factory(root));
     } else if (typeof exports === 'object') {
@@ -1146,8 +1166,109 @@ String.prototype.parseJSON = function () {
     } else {
         root.flyPanels = factory(root);
     }
-})(typeof global !== 'undefined' ? global : this.window || this.global, function (root) {})
+})(typeof global !== 'undefined' ? global : this.window || this.global, function(root) {})
 
 function is(obj, type) {
-      return Object.prototype.toString.call(obj).slice(8, -1) === type;
+    return Object.prototype.toString.call(obj).slice(8, -1) === type;
+}
+
+// 杨辉三角函数
+function yang(n) {
+    var arr = [
+        [1],
+        [1, 1]
+    ];
+    for (var i = 2; i <= n; i++) {
+        var temp = [1];
+        for (var j = 0; j < i - 1; j++) {
+            temp.push(arr[i - 1][j] + arr[i - 1][j + 1]);
+        }
+        temp.push(1);
+        arr.push(temp);
     }
+    return arr[n];
+}
+function triangle(r) {
+    var arr =[], n = 1;
+    for (var i = 1; n <= r; i+=n) { 
+        arr[i] = arr[i - 1] = 1;
+        for (var j = 1; j < n - 1; j++) {
+            arr[i - j -1] = arr[i - j - n - 1] + arr[i - j - n]
+        }
+        n += 1;
+    }
+    return arr.splice(arr.length - r - 1, r);
+}
+
+triangle(5);
+
+var firstName = 'Jake';
+var lastName = 'Rawr';
+console.log(`My name is ${firstName} ${lastName}`);
+
+Function.prototype.bind = function() {
+    var _this = this;
+    var args = [].prototype.slice.call(arguments);
+    var object = args.shift();
+    return function() {
+        return _this.apply(object,
+            args.concat([].prototype.slice.call(arguments)));
+    }
+}
+// 函数节流
+function throttle(method, context) {
+     clearTimeout(methor.tId);
+     method.tId = setTimeout(function(){
+         method.call(context);
+     }， 100);
+ }
+
+ var throttle = function(fn, delay){
+    var timer = null;
+    return function(){
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+            fn.apply(context, args);
+        }, delay);
+    };
+ };
+ var throttleV2 = function(fn, delay, mustRunDelay){
+    var timer = null;
+    var t_start;
+    return function(){
+        var context = this, args = arguments, t_curr = +new Date();
+        clearTimeout(timer);
+        if(!t_start){
+            t_start = t_curr;
+        }
+        if(t_curr - t_start >= mustRunDelay){
+            fn.apply(context, args);
+            t_start = t_curr;
+        }
+        else {
+            timer = setTimeout(function(){
+                fn.apply(context, args);
+            }, delay);
+        }
+    };
+ };
+
+// 排序算法
+
+/* 快速排序 */
+var quickSort = function(arr) {
+　　if (arr.length <= 1) { return arr; }
+　　var pivot = arr.shift();
+　　var left = [];
+　　var right = [];
+　　for (var i = 0; i < arr.length; i++){
+　　　　if (arr[i] < pivot) {
+　　　　　　left.push(arr[i]);
+　　　　} else {
+　　　　　　right.push(arr[i]);
+　　　　}
+　　}
+　　return quickSort(left).concat([pivot], quickSort(right));
+};
+quickSort([32,45,37,16,2,87])
