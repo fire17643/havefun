@@ -539,3 +539,17 @@ var oldName = foo.name;
 foo.name = "bar"; 
 [oldName, foo.name]
 // 返回结果还是['foo','foo']，因为ECMA规定了foo.name这个值是可读不可写的。
+
+function foo(){
+  console.log(this.a);
+}
+var a = 2;
+var o = {
+  a: 3,
+  foo: foo
+};
+var p = {
+  a: 4
+};
+(p.foo = o.foo)();
+p.foo(),o.foo()
