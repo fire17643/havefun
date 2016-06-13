@@ -543,7 +543,7 @@ foo.name = "bar";
 function foo(){
   console.log(this.a);
 }
-var a = 2;
+var a = 2;x                                      
 var o = {
   a: 3,
   foo: foo

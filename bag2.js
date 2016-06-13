@@ -29,3 +29,13 @@ var sizeof = function(str, charset){
     }
     return total;
 }
+
+function isEmptyObj(obj)
+{
+    for(var i in obj){
+        if(obj.hasOwnProperty(name)){
+            return false;
+        }
+    }
+    return true;
+};

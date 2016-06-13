@@ -1,0 +1,526 @@
+.bg {
+  height: 600px;
+  width: 800px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cube {
+  width: 3500px;
+  height: 3500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -moz-animation: div 3s linear infinite;
+  -webkit-animation: div 3s linear infinite;
+  animation: div 3s linear infinite;
+}
+
+span {
+  width: 40px;
+  height: 40px;
+  margin: 230px;
+  background: #000;
+  float: left;
+}
+
+span:nth-child(1) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(2) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(3) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(4) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(5) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(6) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(7) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(8) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(9) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(10) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(11) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(12) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(13) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(14) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(15) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(16) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(17) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(18) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(19) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(20) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(21) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(22) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(23) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(24) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(25) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(26) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(27) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(28) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(29) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(30) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(31) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(32) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(33) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(34) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(35) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(36) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(37) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(38) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(39) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(40) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(41) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(42) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(43) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(44) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(45) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(46) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(47) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+span:nth-child(48) {
+  -moz-transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+  transform: scale(0) rotate(0deg);
+  -moz-animation: odd 3s linear infinite;
+  -webkit-animation: odd 3s linear infinite;
+  animation: odd 3s linear infinite;
+}
+
+span:nth-child(49) {
+  -moz-transform: scale(7);
+  -webkit-transform: scale(7);
+  transform: scale(7);
+  -moz-animation: even 3s linear infinite;
+  -webkit-animation: even 3s linear infinite;
+  animation: even 3s linear infinite;
+}
+
+@-webkit-keyframes odd {
+  100% {
+    -webkit-transform: scale(1) rotate(180deg);
+    margin: 0;
+  }
+}
+@-moz-keyframes odd {
+  100% {
+    -moz-transform: scale(1) rotate(180deg);
+    margin: 0;
+  }
+}
+@keyframes odd {
+  100% {
+    transform: scale(1) rotate(180deg);
+    margin: 0;
+  }
+}
+@-webkit-keyframes even {
+  100% {
+    -webkit-transform: scale(1);
+    margin: 0;
+  }
+}
+@-moz-keyframes even {
+  100% {
+    -moz-transform: scale(1);
+    margin: 0;
+  }
+}
+@keyframes even {
+  100% {
+    transform: scale(1);
+    margin: 0;
+  }
+}
+@-webkit-keyframes div {
+  100% {
+    width: 280px;
+    height: 280px;
+  }
+}
+@-moz-keyframes div {
+  100% {
+    width: 280px;
+    height: 280px;
+  }
+}
+@keyframes div {
+  100% {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

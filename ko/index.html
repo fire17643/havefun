@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script src="js/knockout-3.3.0.js"></script>
+	</head>
+	<body>
+	<div data-bind="with:lt">
+	<div data-bind="text:User.title"></div>
+
+    <label>地域</label>
+    <div data-bind="text:User.address"></div>
+
+	<input type="text" data-bind="value:User.address">
+
+    <label>所经历的等级  </label>
+    <ul data-bind="foreach:Level.tt">
+        <li>索引：<span data-bind="text: $index"></span>，数值：<span data-bind="text: $data"></span></li>
+    </ul>
+
+    <label>所购买的  </label>
+    <div data-bind="foreach:SaleDetail">
+        [<span data-bind="text:id"></span>]&nbsp;&nbsp;<span data-bind="text:memo"></span>&nbsp;&nbsp;[<a href="javascript:;" data-bind="click:$parent.remove">移除</a>]<hr />
+    </div>
+	
+</div>
+	<ul class="um-list" data-bind="foreach: list">
+		<li  class="um-list-item" >
+			<div class="um-list-item-inner">
+				<div class="um-list-item-body" data-bind="text: title">
+					通知
+				</div>
+			</div>
+		</li>
+	</ul>
+	Chosen meal: <select data-bind="options: availableMeals,
+                                optionsText: 'mealName',
+                                value: chosenMeal"></select>
+    (price: <span data-bind='text: formatPrice(chosenMeal().extraCost)'></span>)
+
+    <button data-bind="enable: myItems().count < 5">Add</button>
+	<script src="js/index.js"></script>
+	</body>
+	</html>	

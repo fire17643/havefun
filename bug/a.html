@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta property="wb:webmaster" content="30f3a9765f26c09e"/>
+    <title>opener测试A页面</title>
+    <link rel="icon" href="img/logo_16.png" />
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+    function aa(msg){
+        alert(msg);
+    }
+    function bb(){
+        try{
+            var win = window.open('b.html',"mywindow","_blank");
+            //win.opener=window;
+            //win.opener=window;
+            //win.backTo=window;
+        }catch(e){
+            alert(e.message);
+        }
+    }
+    </script>
+</head>
+<body>
+ <a href="b.html" target="_blank">到b页面调用</a>
+ <button onclick="bb()">window.open</button>
+</body>
+</html>

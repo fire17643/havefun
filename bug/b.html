@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>opener测试B页面</title>
+</head>
+<body onload="f();">
+<script>
+    function f(){
+        try{
+            //window.opener.aa("OK");
+            //window.backTo.aa("ok");
+            //alert(window.opener["aa"]);
+            window.opener.location="javascript:aa(123);"; 
+        }catch(e){
+            alert(e.message);
+        }
+    }
+</script>
+<a href="a.html">回到a页面</a>
+</body>
+</html>
