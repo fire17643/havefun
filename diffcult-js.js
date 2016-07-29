@@ -553,3 +553,39 @@ var p = {
 };
 (p.foo = o.foo)();
 p.foo(),o.foo()
+
+Array.isArray( Array.prototype )
+true
+Array.isArray( Object.prototype )
+false
+
+1 + - + + + - + 1
+// 2
+
+var a = {}, b = Object.prototype;
+[a.prototype === b, Object.getPrototypeOf(a) === b]
+// [false, true]
+
+function f() {}
+var a = f.prototype, b = Object.getPrototypeOf(f);
+a === b
+// false
+// f.prototype 是使用使用 new 创建的 f 实例的原型. 而 Object.getPrototypeOf 是 f 函数的原型.
+
+Function.length // 1
+
+var min = Math.min(), max = Math.max()
+min < max
+// Math.min 不传参数返回 Infinity, Math.max 不传参数返回 -Infinity
+
+var a = new Date("2014-03-19"),
+    b = new Date(2014, 03, 19);
+[a.getDay() === b.getDay(), a.getMonth() === b.getMonth()]
+
+foo.addEventListener('click', (function() {
+    var times = 0
+    return function() {
+        times++
+        console.log(times)
+    }
+})(), false)
