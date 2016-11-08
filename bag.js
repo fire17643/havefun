@@ -32,6 +32,20 @@ function showImg(show, file) {
     }
 }
 
+/*
+参数
+inPrice 首次买入价
+inNum 首次买入股数
+
+marginCallPrice 补仓买入价
+marginCallNum 补仓买入股数
+
+fee 手续费
+*/
+function marginCallAverage(inPrice, inNum, marginCallPrice, marginCallNum) {
+    return (inPrice * inNum + marginCallPrice * marginCallNum) / (inNum + marginCallNum);
+}
+marginCallAverage(6.09, 300, 3.65, 400);
 
 var toString = Object.prototype.toString;
 
